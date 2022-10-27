@@ -1,6 +1,6 @@
+import 'package:adivid/app_theme.dart';
+import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/app_theme.dart';
-import 'package:landify/values/values.dart';
 
 class Single5 extends StatelessWidget {
   const Single5({

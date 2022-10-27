@@ -7,8 +7,8 @@ class ImagePath {
   static const googlePlay = '$imageDir/google_play.png';
   static const appStore = '$imageDir/app_store.png';
   static const background = '$imageDir/bg.png';
-  static const phoneMockup = '$imageDir/phone_mockup.png';
-  static const phoneMockup2 = '$imageDir/phone_mockup_2.png';
+  static const phoneMockup = '$imageDir/desktop.png';
+  static const phoneMockup2 = '$imageDir/phone.png';
   static const quoteMark = '$imageDir/quote_mark.png';
   static const coverImg = '$imageDir/cover_img.png';
 

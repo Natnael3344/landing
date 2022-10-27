@@ -1,5 +1,5 @@
+import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/values/values.dart';
 
 class LogosList extends StatelessWidget {
   const LogosList({

@@ -1,14 +1,9 @@
+import 'package:adivid/values/values.dart';
+import 'package:adivid/widgets/navbar.dart';
+import 'package:adivid/widgets/sections/features.dart';
+import 'package:adivid/widgets/sections/footer.dart';
+import 'package:adivid/widgets/sections/heros.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/values/values.dart';
-import 'package:landify/widgets/navbar.dart';
-import 'package:landify/widgets/sections/cta.dart';
-import 'package:landify/widgets/sections/features.dart';
-import 'package:landify/widgets/sections/footer.dart';
-import 'package:landify/widgets/sections/heros.dart';
-import 'package:landify/widgets/sections/logos_list.dart';
-import 'package:landify/widgets/sections/singles.dart';
-import 'package:landify/widgets/sections/stats.dart';
-import 'package:landify/widgets/sections/testimonials.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -18,13 +13,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.white,
       extendBodyBehindAppBar: true,
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(72.0),
-        child: Padding(
-          padding: EdgeInsets.only(right: 45,left: 45),
-          child: SizedBox(
-              // width: size.width * 0.7,
-              child: NavBar()),
+      appBar:  PreferredSize(
+        preferredSize: const Size.fromHeight(72.0),
+        child: Container(
+            color: const Color(0xFF2F2FA2),
+          child: const Padding(
+            padding: EdgeInsets.only(right: 45,left: 45),
+            child: NavBar(),
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -32,13 +28,13 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: const [
             Heros(),
-            LogosList(),
+            // LogosList(),
             Features(),
-            Testimonials(),
-            Stats(),
-            Single5(),
-            Single6(),
-            Cta(),
+            // Testimonials(),
+            // Stats(),
+            // Single5(),
+            // Single6(),
+            // Cta(),
             Footer(),
           ],
         ),

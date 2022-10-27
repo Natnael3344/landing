@@ -1,5 +1,5 @@
+import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/values/values.dart';
 
 class Heros extends StatelessWidget {
   const Heros({
@@ -26,16 +26,20 @@ class Heros extends StatelessWidget {
         children: [
           const SizedBox(height: 90),
           SizedBox(
-            width: size.width * 0.7,
+            width: size.width * 0.8,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(flex: 2, child: _buildContent(textTheme)),
-                Flexible(child: Image.asset(ImagePath.phoneMockup)),
+                Flexible(flex:2,child: _buildContent(textTheme)),
+                Flexible(flex:2,child: Padding(
+                  padding: const EdgeInsets.only(top: 280),
+                  child: Image.asset(ImagePath.phoneMockup),
+                ),),
               ],
             ),
           ),
+          const SizedBox(height: 20,)
         ],
       ),
     );
@@ -76,7 +80,9 @@ class Heros extends StatelessWidget {
               style: textTheme.subtitle2!.copyWith(color: AppColors.white),
             ),
           ),
-        )
+        ),
+        const SizedBox(height: 50),
+        Image.asset(ImagePath.phoneMockup2,height: 500,),
       ],
     );
   }

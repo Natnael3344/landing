@@ -1,6 +1,6 @@
+import 'package:adivid/app_theme.dart' as app_theme;
+import 'package:adivid/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/app_theme.dart' as app_theme;
-import 'package:landify/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: app_theme.lightThemeData,
-      title: 'Landify',
+      title: 'Adivid',
       home: HomePage(),
     );
   }

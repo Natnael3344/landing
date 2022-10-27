@@ -1,7 +1,7 @@
+import 'package:adivid/app_theme.dart';
+import 'package:adivid/values/values.dart';
+import 'package:adivid/widgets/navbar.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/app_theme.dart';
-import 'package:landify/values/values.dart';
-import 'package:landify/widgets/navbar.dart';
 
 class Cta extends StatelessWidget {
   const Cta({Key? key}) : super(key: key);

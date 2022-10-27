@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:landify/app_theme.dart';
-import 'package:landify/values/values.dart';
 
 class Features extends StatelessWidget {
   const Features({
@@ -19,17 +17,14 @@ class Features extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 60),
-            Text('Tailor-made features', style: textTheme.headline2),
+            Text('Online Library management features', style: textTheme.headline2),
             const SizedBox(height: 20),
-            Text(
-              'Lorem ipsum is common placeholder text used to demonstrate',
-              style: lead1,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'the graphic elements of a document or visual presentation.',
-              style: lead1,
-            ),
+
+            // const SizedBox(height: 8),
+            // Text(
+            //   'the graphic elements of a document or visual presentation.',
+            //   style: lead1,
+            // ),
             const SizedBox(height: 48),
             Wrap(
               children: [
@@ -37,60 +32,51 @@ class Features extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: FeatureItem(
                     width: size.width / 4,
-                    icon: Image.asset(ImagePath.featureIcon1),
-                    title: 'Robust workflow',
-                    description: 'Lorem ipsum dolor sit amet, consectetur\n'
-                        'adipiscing elit. Sed erat nibh tristique ipsum.',
+                    title: 'Easy Login',
+                    description: 'Authentication of the user as\n'
+                        'a student, admin or librarian. User need to\n '
+                        'enter valid Email and password.',
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: FeatureItem(
                     width: size.width / 4,
-                    icon: Image.asset(ImagePath.featureIcon2),
-                    title: 'Flexibility',
-                    description: 'Lorem ipsum dolor sit amet, consectetur\n'
-                        'adipiscing elit. Sed erat nibh tristique ipsum.',
+                    title: 'Dashboard Panel',
+                    description: 'shows the statistics and Analytics of the\n'
+                        'portal according to the user.',
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: FeatureItem(
                     width: size.width / 4,
-                    icon: Image.asset(ImagePath.featureIcon3),
-                    title: 'User  friendly',
-                    description: 'Lorem ipsum dolor sit amet, consectetur\n'
-                        'adipiscing elit. Sed erat nibh tristique ipsum.',
+                    // icon: Image.asset(ImagePath.featureIcon3),
+                    title: 'Books Management Panel',
+                    description: 'can easily add, view, update, search\n'
+                        'delete book as well as print the list in csv,\n'
+                        ' excel and pdf format.',
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: FeatureItem(
                     width: size.width / 4,
-                    icon: Image.asset(ImagePath.featureIcon4),
-                    title: 'Multiple layouts',
-                    description: 'Lorem ipsum dolor sit amet, consectetur\n'
-                        'adipiscing elit. Sed erat nibh tristique ipsum.',
+                    title: 'Transaction Panel',
+                    description: 'can easily add, view, update, search\n'
+                        'delete transaction as well as print the list\n'
+                        ' in csv, excel and pdf format.',
                   ),
                 ),
+
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: FeatureItem(
                     width: size.width / 4,
-                    icon: Image.asset(ImagePath.featureIcon5),
-                    title: 'Better components',
-                    description: 'Lorem ipsum dolor sit amet, consectetur\n'
-                        'adipiscing elit. Sed erat nibh tristique ipsum.',
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: FeatureItem(
-                    width: size.width / 4,
-                    icon: Image.asset(ImagePath.featureIcon6),
-                    title: 'Well organised',
-                    description: 'Lorem ipsum dolor sit amet, consectetur\n'
-                        'adipiscing elit. Sed erat nibh tristique ipsum.',
+                    title: 'User Management',
+                    description: 'admin can easily handle all privileges\n'
+                        ' associated with users including\n'
+                        ' permissions, roles, libraries.',
                   ),
                 ),
               ],
@@ -106,7 +92,6 @@ class Features extends StatelessWidget {
 class FeatureItem extends StatelessWidget {
   const FeatureItem({
     Key? key,
-    required this.icon,
     required this.title,
     required this.description,
     this.width,
@@ -114,7 +99,6 @@ class FeatureItem extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final Widget icon;
   final String description;
   final double? width;
   final double? height;
@@ -129,7 +113,6 @@ class FeatureItem extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          icon,
           const SizedBox(height: 24),
           Text(title, style: textTheme.headline5),
           Padding(

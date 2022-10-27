@@ -1,11 +1,16 @@
+import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
-import 'package:landify/values/values.dart';
 
-class NavBar extends StatelessWidget {
+class NavBar extends StatefulWidget {
   const NavBar({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<NavBar> createState() => _NavBarState();
+}
+
+class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -34,26 +39,73 @@ class NavBar extends StatelessWidget {
         const SizedBox(width: 30.0),
         Text('Contact', style: textTheme.bodyText2?.copyWith(color: Colors.white)),
         const SizedBox(width: 30.0),
-        Text('Resources', style: textTheme.bodyText2?.copyWith(color: Colors.white)),
-        const SizedBox(width: 30.0),
         Flexible(child: _buildMore(textTheme)),
       ],
     );
   }
 
   Row _buildMore(TextTheme textTheme) {
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text('Login', style: textTheme.bodyText2?.copyWith(color: Colors.white)),
-        const Padding(
-          padding: EdgeInsets.only(bottom: 4.0),
-          child: Icon(Icons.expand_more, size: 20.0,color: Colors.white,),
+         Padding(
+          padding: const EdgeInsets.only(bottom: 4.0),
+
+          child: PopupMenuButton<Menu>(
+            icon: const Icon(Icons.expand_more, size: 20.0,color: Colors.white,),
+            position: PopupMenuPosition.under,
+            onSelected: (Menu item) {
+              setState(() {
+                if(item.name=='student'){
+                  // Navigator.push(context,
+                  //   MaterialPageRoute (
+                  //     builder: (BuildContext context) => const MyPage(),
+                  //   ),
+                  // );
+                }
+                if(item.name=='admin'){
+                  // Navigator.push(context,
+                  //   MaterialPageRoute (
+                  //     builder: (BuildContext context) => const MyPage(),
+                  //   ),
+                  // );
+                }
+                if(item.name=='librarian'){
+                  // Navigator.push(context,
+                  //   MaterialPageRoute (
+                  //     builder: (BuildContext context) => const MyPage(),
+                  //   ),
+                  // );
+                }
+              });
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
+          const PopupMenuItem<Menu>(
+            value: Menu.student,
+            child: Text('Student'),
+          ),
+          const PopupMenuItem<Menu>(
+            value: Menu.admin,
+            child: Text('Admin'),
+          ),
+          const PopupMenuItem<Menu>(
+            value: Menu.librarian,
+            child: Text('Librarian'),
+          ),
+
+        ]
         ),
+         )
       ],
+
     );
   }
 }
+
+enum Menu { student, admin, librarian}
+
 
 class ImageLinks extends StatelessWidget {
   const ImageLinks({
@@ -85,9 +137,12 @@ class Logo extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(ImagePath.logo),
+        Image.asset(ImagePath.logo,width: 45,height: 45,),
         const SizedBox(width: 10.0),
-        Text('Advid', style: textTheme.subtitle1?.copyWith(color: Colors.white)),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Text('Adivid', style: textTheme.subtitle1?.copyWith(color: Colors.white)),
+        ),
       ],
     );
   }
