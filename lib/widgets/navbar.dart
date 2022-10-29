@@ -1,6 +1,8 @@
 import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
 
+import '../values/responsive_layout.dart';
+
 class NavBar extends StatefulWidget {
   const NavBar({
     Key? key,
@@ -9,10 +11,11 @@ class NavBar extends StatefulWidget {
   @override
   State<NavBar> createState() => _NavBarState();
 }
-
+bool f=true;
 class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
+
     final textTheme = Theme.of(context).textTheme;
     return SizedBox(
       height: 72.0,
@@ -21,7 +24,55 @@ class _NavBarState extends State<NavBar> {
         children: [
           const Logo(),
           const SizedBox(width: 30.0),
-          Flexible(child: _buildItems(textTheme)),
+            Flexible(
+                child: !ResponsiveLayout.isSmallScreen(context)?_buildItems(textTheme):
+                PopupMenuButton<Menu>(
+                    icon: const Icon(Icons.menu_rounded, size: 35.0,color: Colors.white,),
+                    position: PopupMenuPosition.under,
+                    onSelected: (Menu item) {
+                      setState(() {
+                        if(item.name=='student'){
+                          // Navigator.push(context,
+                          //   MaterialPageRoute (
+                          //     builder: (BuildContext context) => const MyPage(),
+                          //   ),
+                          // );
+                        }
+                        if(item.name=='admin'){
+                          // Navigator.push(context,
+                          //   MaterialPageRoute (
+                          //     builder: (BuildContext context) => const MyPage(),
+                          //   ),
+                          // );
+                        }
+                        if(item.name=='librarian'){
+                          // Navigator.push(context,
+                          //   MaterialPageRoute (
+                          //     builder: (BuildContext context) => const MyPage(),
+                          //   ),
+                          // );
+                        }
+                      });
+                    },
+                    itemBuilder: (BuildContext context) => <PopupMenuEntry<Menu>>[
+                      const PopupMenuItem<Menu>(
+                        value: Menu.student,
+                        child: Text('Student'),
+                      ),
+                      const PopupMenuItem<Menu>(
+                        value: Menu.admin,
+                        child: Text('Admin'),
+                      ),
+                      const PopupMenuItem<Menu>(
+                        value: Menu.librarian,
+                        child: Text('Librarian'),
+                      ),
+
+                    ]
+                ),
+                // Image.network("assets/icons8-menu.png", width: 50, height: 50)
+            ),
+
           // const Flexible(child: ImageLinks()),
         ],
       ),

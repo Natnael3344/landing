@@ -28,13 +28,7 @@ class HomePage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: const [
             Heros(),
-            // LogosList(),
             Features(),
-            // Testimonials(),
-            // Stats(),
-            // Single5(),
-            // Single6(),
-            // Cta(),
             Footer(),
           ],
         ),

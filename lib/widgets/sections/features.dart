@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../values/responsive_layout.dart';
+
 class Features extends StatelessWidget {
   const Features({
     Key? key,
@@ -17,7 +19,9 @@ class Features extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const SizedBox(height: 60),
-            Text('Online Library management features', style: textTheme.headline2),
+            Text('Online Library management features', style: !ResponsiveLayout.isSmallScreen(context)?textTheme.headline2:
+            textTheme.headlineSmall
+            ),
             const SizedBox(height: 20),
 
             // const SizedBox(height: 8),
@@ -114,13 +118,16 @@ class FeatureItem extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(height: 24),
-          Text(title, style: textTheme.headline5),
+          Text(title, style: !ResponsiveLayout.isSmallScreen(context)?textTheme.headline5:
+          textTheme.titleSmall
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               description,
               textAlign: TextAlign.center,
-              style: textTheme.bodyText1,
+              style: !ResponsiveLayout.isSmallScreen(context)?textTheme.bodyText1:
+              textTheme.bodySmall,
             ),
           ),
         ],

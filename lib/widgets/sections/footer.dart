@@ -1,6 +1,8 @@
 import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
 
+import '../../values/responsive_layout.dart';
+
 class Footer extends StatelessWidget {
   const Footer({Key? key}) : super(key: key);
 
@@ -20,6 +22,7 @@ class Footer extends StatelessWidget {
             child: DefaultTextStyle.merge(
               style: textTheme.bodyText1!.copyWith(color: AppColors.white),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,6 +104,7 @@ class Footer extends StatelessWidget {
                           // ),
                         ],
                       ),
+                      if(!ResponsiveLayout.isSmallScreen(context))
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,6 +123,24 @@ class Footer extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 60),
+                  if(ResponsiveLayout.isSmallScreen(context))
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Get the App',
+                          style: textTheme.subtitle2!.copyWith(
+                            color: AppColors.gray.shade300,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Image.asset(ImagePath.appStore),
+                        const SizedBox(height: 16),
+                        Image.asset(ImagePath.googlePlay),
+                      ],
+                    ),
                   const SizedBox(height: 60),
                   Center(
                     child: Text(

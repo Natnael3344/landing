@@ -1,5 +1,9 @@
+import 'dart:js';
+
 import 'package:adivid/values/values.dart';
 import 'package:flutter/material.dart';
+
+import '../../values/responsive_layout.dart';
 
 class Heros extends StatelessWidget {
   const Heros({
@@ -31,7 +35,7 @@ class Heros extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(flex:2,child: _buildContent(textTheme)),
+                Flexible(flex:2,child: _buildContent(textTheme,context)),
                 Flexible(flex:2,child: Padding(
                   padding: const EdgeInsets.only(top: 280),
                   child: Image.asset(ImagePath.phoneMockup),
@@ -45,16 +49,20 @@ class Heros extends StatelessWidget {
     );
   }
 
-  Column _buildContent(TextTheme textTheme) {
+  Column _buildContent(TextTheme textTheme,BuildContext context ) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const SizedBox(height: 90),
-        Text('Online Library', style: textTheme.headline1?.copyWith(color: Colors.white)),
+        const SizedBox(height:90),
+        Text('Online Library', style: ResponsiveLayout.isLargeScreen(context)?textTheme.headline1?.copyWith(color: Colors.white):
+        textTheme.headlineMedium?.copyWith(color: Colors.white)
+        ),
         const SizedBox(height: 30),
-        Text('Management System.', style: textTheme.headline1?.copyWith(color: Colors.white)),
+        Text('Management System.', style: ResponsiveLayout.isLargeScreen(context)?textTheme.headline1?.copyWith(color: Colors.white):
+        textTheme.headlineMedium?.copyWith(color: Colors.white)
+        ),
         const SizedBox(height: 50),
         Container(
           decoration:  const BoxDecoration(
